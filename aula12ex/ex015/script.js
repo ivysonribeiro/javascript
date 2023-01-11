@@ -8,7 +8,34 @@ function verificar() {
    }else{
     var fsex = document.getElementsByName('radsex')
     var idade = ano - Number(fano.value)
-    res.innerHTML = `Idade calculada: ${idade}`
+    var gênero = ''
+    var img = document.getElementById('imagem')
+    if(fsex[0].checked) {
+        gênero = 'Homem'
+        if(idade >= 0 && idade <10){
+            //
+            img.src = 'imagens/bebem.jpg'
+        }else if(idade < 21){
+            //jovem
+        }else if(idade < 50){
+            //adulto
+        }else{
+            //idoso
+        }
+    }else if(fsex[1].checked) {
+        gênero = 'Mulher'
+        if(idade >= 0 && idade <10){
+            //criança
+        }else if(idade < 21){
+            //jovem
+        }else if(idade < 50){
+            //adulto
+        }else{
+            //idoso
+        }
+    }
+    res.innerHTML = `Detectamos ${gênero} com ${idade} anos.`
+    res.appendChild(img)
     
    }
 }
